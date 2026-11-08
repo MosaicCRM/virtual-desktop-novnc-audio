@@ -182,8 +182,9 @@ const UI = {
         const fixedPath = currentPath.endsWith('/') ? currentPath + 'ws' : currentPath + '/ws';
         UI.forceSetting('path', fixedPath);
         UI.initSetting('repeaterID', '');
-        UI.initSetting('reconnect', true);
-        UI.initSetting('reconnect_delay', 3000);
+        // Force auto-reconnect on any brief disconnect
+        UI.forceSetting('reconnect', true);
+        UI.forceSetting('reconnect_delay', 1500);
     },
     // Adds a link to the label elements on the corresponding input elements
     setupSettingLabels() {
