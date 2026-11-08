@@ -1,0 +1,68 @@
+{
+  "name": "novnc-audio-server",
+  "version": "0.8.1",
+  "description": "A standalone audio server for noVNC - captures system audio via PulseAudio, encodes with Opus, and streams over WebSocket",
+  "main": "dist/index.js",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "novnc-audio": "./dist/main.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist coverage",
+    "build": "tsc && chmod +x dist/main.js",
+    "dev": "tsx src/main.ts",
+    "start": "pnpm build && node dist/main.js",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "prettier": "prettier --write src/**/*.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "packageManager": "pnpm@10.17.0",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "vnc",
+    "noVNC",
+    "audio",
+    "websocket",
+    "opus",
+    "pulseaudio",
+    "streaming"
+  ],
+  "author": "gbox.ai <connect@gbox.ai>",
+  "homepage": "https://github.com/babelcloud/novnc-audio-server",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babelcloud/novnc-audio-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/babelcloud/novnc-audio-server/issues"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.10.0",
+    "commander": "^12.1.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.7.1",
+    "@types/ws": "^8.5.13",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "^9.24.0",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

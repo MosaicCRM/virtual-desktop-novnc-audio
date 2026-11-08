@@ -1,0 +1,4 @@
+.include /etc/pulse/default.pa
+load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
+load-module module-null-sink sink_name=virtual_speaker rate=48000 channels=2 format=s16le sink_properties=device.description=Virtual_Speaker
+set-default-sink virtual_speaker
